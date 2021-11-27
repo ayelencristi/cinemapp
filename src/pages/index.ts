@@ -1,0 +1,7 @@
+export {Login} from './Login'
+export {SingUp} from './SignUp'
+export {Home} from './Home'
+export {Admin} from './Admin'
+export {Movies} from './Movies'
+export {Series} from './Series'
+export {Details} from './Details'
