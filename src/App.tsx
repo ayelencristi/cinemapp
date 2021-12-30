@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Admin, Details, Home, Login, Movies, Series, SingUp } from './pages';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const App = () => {
