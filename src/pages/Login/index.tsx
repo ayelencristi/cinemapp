@@ -1,8 +1,11 @@
 import { FC } from "react"
+import { Wrapper } from "../../components"
 
 const Login: FC = () => {
     return (
-        <>Login</>
+        <Wrapper hideHeader hideFooter>
+            
+        </Wrapper>
     )
 }
 
