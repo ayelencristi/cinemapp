@@ -1,8 +1,9 @@
 import { FC } from "react"
+import { Wrapper } from "../../components"
 
 const Movies: FC = () => {
     return (
-        <>Peliculas</>
+        <Wrapper>Peliculas</Wrapper>
     )
 }
 

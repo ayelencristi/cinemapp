@@ -1,8 +1,9 @@
 import { FC } from "react"
+import { Wrapper } from "../../components"
 
 const Series: FC = () => {
     return (
-        <>Series</>
+        <Wrapper>Series</Wrapper>
     )
 }
 

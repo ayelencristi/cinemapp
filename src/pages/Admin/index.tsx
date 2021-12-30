@@ -1,8 +1,11 @@
 import { FC } from "react"
+import { Wrapper } from "../../components"
 
 const Admin: FC = () => {
     return (
-        <>Admin</>
+        <Wrapper>
+            Admin
+        </Wrapper>
     )
 }
 
