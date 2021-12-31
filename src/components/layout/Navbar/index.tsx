@@ -1,9 +1,10 @@
 import { FC } from "react"
 import { Navbar, Container, Nav } from "react-bootstrap"
+import "./styless.css"
 
 const NavBar: FC = () => {
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar className="nav-bar" variant="dark">
             <Container>
                 <Navbar.Brand href="/">CinemApp</Navbar.Brand>
                 <Nav className="me-auto">
