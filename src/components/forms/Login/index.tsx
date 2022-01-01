@@ -31,6 +31,9 @@ const LoginForm: FC = () => {
 
     return (
         <div className='container'>
+            <div className='title'>
+                <h1 className='title-font'>CinemApp</h1>
+            </div>
             <div className="login-form">
                 <Form className='p-3 form' onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -46,7 +49,7 @@ const LoginForm: FC = () => {
                         <Form.Control id="password" type="password" name="password" value={inputs.password} onChange={(e) => setInputs({ ...inputs, password: e.target.value })} placeholder="Contraseña" />
                     </Form.Group>
                     <Button className='btn-secondary mt-3' variant="primary" type="submit">
-                        Submit
+                        Iniciar sesión
                     </Button>
                 </Form>
             </div>

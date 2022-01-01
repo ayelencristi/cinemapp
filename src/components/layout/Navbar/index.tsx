@@ -6,8 +6,10 @@ const NavBar: FC = () => {
     return (
         <Navbar className="nav-bar" variant="dark">
             <Container>
-                <Navbar.Brand href="/">CinemApp</Navbar.Brand>
-                <Nav className="me-auto">
+                <Navbar.Brand href="/">
+                    <h1 className="logo">CinemApp</h1>
+                </Navbar.Brand>
+                <Nav className="mr-3">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/movies">Películas</Nav.Link>
                     <Nav.Link href="/series">Series</Nav.Link>
