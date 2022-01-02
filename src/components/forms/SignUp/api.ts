@@ -1,7 +1,12 @@
-import { User } from "../../../types";
 import { api } from "../../../utils";
 
-type Payload = Omit<User, "id">
+type Payload = {
+    name: string,
+    lastname: string,
+    email: string,
+    password: string,
+    birthdate: Date
+}
 
 const signup = async (payload: Payload) => {
     try {
