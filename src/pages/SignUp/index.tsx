@@ -1,10 +1,10 @@
 import { FC } from "react"
-import { SignUpForm, Wrapper } from "../../components"
+import { AddUsers, Wrapper } from "../../components"
 
 const SingUp: FC = () => {
     return (
         <Wrapper hideHeader>
-            <SignUpForm />
+            <AddUsers />
         </Wrapper>
     )
 }
