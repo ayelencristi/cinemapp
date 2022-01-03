@@ -5,4 +5,11 @@ const api = axios.create({
 })
 
 
+const apiMovies = axios.create({
+    baseURL: '',
+    params: {
+        api_key: ''
+    }
+})
+
 export { api } 
