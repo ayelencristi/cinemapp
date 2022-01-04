@@ -6,10 +6,10 @@ const api = axios.create({
 
 
 const apiMovies = axios.create({
-    baseURL: '',
+    baseURL: 'https://api.themoviedb.org/3',
     params: {
-        api_key: ''
+        api_key: '2925626944a8c97f3cdc608fb886f9cc'
     }
 })
 
-export { api } 
+export { api, apiMovies } 
