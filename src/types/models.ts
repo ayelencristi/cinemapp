@@ -5,6 +5,7 @@ export type User = {
     email: string,
     password: string,
     birthdate: Date;
+    sessionToken?: string
 }
 
 export type AddUserType = Omit<User, 'id'>;
