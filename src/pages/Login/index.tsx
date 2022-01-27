@@ -1,7 +1,8 @@
 import { FC } from "react"
 import { LoginForm, Wrapper } from "../../components"
+import { WithAuth } from "../../hoc"
 
-const Login: FC = () => {
+const LoginPage: FC = () => {
     return (
         <Wrapper hideHeader hideFooter>
             <LoginForm />
@@ -9,4 +10,4 @@ const Login: FC = () => {
     )
 }
 
-export { Login } 
+export const Login = WithAuth(LoginPage)  

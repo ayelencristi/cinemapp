@@ -1,7 +1,8 @@
 import { FC } from "react"
 import { AddUsers, Wrapper } from "../../components"
+import { WithAuth } from "../../hoc"
 
-const SingUp: FC = () => {
+const SingUpPage: FC = () => {
     return (
         <Wrapper hideHeader>
             <AddUsers />
@@ -9,4 +10,4 @@ const SingUp: FC = () => {
     )
 }
 
-export { SingUp } 
+export const SingUp = WithAuth(SingUpPage); 

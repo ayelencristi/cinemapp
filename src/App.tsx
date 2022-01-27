@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css"
 // import { UsersProvider } from './context/Users';
 import { AuthProvider } from './context/Auth';
+import { Wrapper } from './components';
 
 
 const App = () => {
