@@ -1,10 +1,11 @@
 import { FC } from "react"
 import { Wrapper } from "../../components"
+import { WithAuth } from "../../hoc";
 
-const Movies: FC = () => {
+const MoviesPage: FC = () => {
     return (
         <Wrapper>Peliculas</Wrapper>
     )
 }
 
-export {Movies} 
+export const Movies = WithAuth(MoviesPage);

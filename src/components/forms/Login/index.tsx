@@ -16,9 +16,6 @@ type Props = {
 
 const LoginForm: FC<Props> = ({ id, className }) => {
 
-    const [inputs, setInputs] = useState(defaultValues);
-    const [alert] = useState<string | unknown>();
-
     const { login } = useAuth();
 
     const {
@@ -44,7 +41,7 @@ const LoginForm: FC<Props> = ({ id, className }) => {
                 <h1 className='title-font'>CinemApp</h1>
             </div>
             <div className="login-form">
-                <Form className='p-3 form'>
+                <Form className='p-3 form' id={id} onSubmit={handleSubmit(onSubmit)}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control id="email" type="email" {...register("email")} placeholder="Email" />

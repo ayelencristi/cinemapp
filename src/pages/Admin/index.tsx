@@ -1,7 +1,8 @@
 import { FC } from "react"
 import { Wrapper } from "../../components"
+import { WithAuth } from "../../hoc"
 
-const Admin: FC = () => {
+const AdminPage: FC = () => {
     return (
         <Wrapper>
             Admin
@@ -9,4 +10,4 @@ const Admin: FC = () => {
     )
 }
 
-export {Admin} 
+export const Admin = WithAuth(AdminPage);

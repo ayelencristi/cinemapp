@@ -1,8 +1,9 @@
 import { FC } from "react"
 import { Wrapper } from "../../components"
 import { UsersTable } from "../../components/parts"
+import { WithAuth } from "../../hoc"
 
-const Users: FC = () => {
+const UsersPage: FC = () => {
     return (
         <Wrapper>
             <UsersTable />
@@ -10,4 +11,4 @@ const Users: FC = () => {
     )
 }
 
-export { Users } 
+export const Users = WithAuth(UsersPage);
