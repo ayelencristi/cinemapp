@@ -19,7 +19,13 @@ const useAuth = () => {
 
     useEffect(() => {
         if (tokenStorage) localStorage.setItem("cinema-token", tokenStorage);
+    }, [tokenStorage]);
+
+    useEffect(() => {
+        loginWithToken();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
 
     /**
    *
