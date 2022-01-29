@@ -3,8 +3,8 @@ import { FC, FormEvent, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../../hooks/useAuth';
-import { defaultValues } from '../AddUsers/defaultValues';
-import { validationSchema } from '../AddUsers/validationSchema';
+import { defaultValues } from './defaultValues';
+import { validationSchema } from './validationSchema';
 import "./styless.css"
 
 type Props = {
@@ -22,6 +22,7 @@ const LoginForm: FC<Props> = ({ id, className }) => {
         register,
         formState: { errors },
         handleSubmit,
+
     } = useForm<{ email: string, password: string }>({
         resolver: yupResolver(validationSchema),
         defaultValues,
