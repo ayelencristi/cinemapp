@@ -1,22 +1,19 @@
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import { Button, Card } from "react-bootstrap"
-import { useItems } from "../../../hooks/useItems"
 import { Item } from "../../../types"
 
 
 
 type Props = {
-    items: Item[]
+    data?: Item[]
 }
 
-const ItemList: FC<Props> = ({ items }) => {
-
-    const { getItems } = useItems()
+const ItemList: FC<Props> = ({ data }) => {
 
     return (
         <div className="container">
             <div className="card-movies row">
-                {items?.map(item =>
+                {data?.map(item =>
                     <Card className="item" style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={item.poster_path} />
                         <Card.Body>

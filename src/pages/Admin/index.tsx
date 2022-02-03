@@ -1,12 +1,13 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 import { ItemList, SearchMovies, Wrapper } from "../../components"
 import { WithAuth } from "../../hoc"
 
 const AdminPage: FC = () => {
+
     return (
         <Wrapper>
             <SearchMovies />
-            <ItemList items={ } />
+            <ItemList data={items} />
         </Wrapper>
     )
 }

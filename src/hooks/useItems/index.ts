@@ -1,15 +1,9 @@
-import { FC } from "react";
-import { getMovies } from "../../api/movies";
-import { ItemList } from "../../components";
-import { Item } from "../../types"
-
+import { moviesApi } from "../../api/movies";
 
 const useItems = () => {
 
-
     const getItems = async () => {
-        const response = await getMovies()
-
+        const response = await moviesApi.getMovies()
     }
 
     return { getItems }
