@@ -1,9 +1,19 @@
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { ItemList, SearchMovies, Wrapper } from "../../components"
 import { WithAuth } from "../../hoc"
+import { useItems } from "../../hooks/useItems";
+import { Item } from "../../types"
+
 
 const AdminPage: FC = () => {
 
+    const [items, setItems] = useState<Item[]>([]);
+
+    const { getItems } = useItems()
+
+    useEffect(() => {
+        !items && setItems(getItems())
+    }, [getItems])
     return (
         <Wrapper>
             <SearchMovies />
@@ -13,5 +23,3 @@ const AdminPage: FC = () => {
 }
 
 export const Admin = WithAuth(AdminPage);
-
-// ItemList lleva una prop pero no estoy segura como pasarla
