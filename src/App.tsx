@@ -5,24 +5,27 @@ import "./app.css"
 // import { UsersProvider } from './context/Users';
 import { AuthProvider } from './context/Auth';
 import { Wrapper } from './components';
+import { UsersProvider } from './context';
 
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/sign-up" component={SingUp} />
-          <Route path="/admin" component={Admin} />
-          <Route path="/users" component={Users} />
-          <Route path="/movies" component={Movies} />
-          <Route path="/series" component={Series} />
-          <Route path="/details" component={Details} />
-          <Route path="/" component={Home} />
-        </Switch>
-      </Router>
-    </AuthProvider>
+    <UsersProvider>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/sign-up" component={SingUp} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/users" component={Users} />
+            <Route path="/movies" component={Movies} />
+            <Route path="/series" component={Series} />
+            <Route path="/details" component={Details} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </Router>
+      </AuthProvider>
+    </UsersProvider>
   );
 }
 
