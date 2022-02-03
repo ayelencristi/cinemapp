@@ -8,7 +8,7 @@ const useUsers = () => {
 
     const { updateUsers } = useContext(UsersContext)
 
-    const { currentUser, setCurrentUser } = useContext(AuthContext)
+    // const { currentUser, setCurrentUser } = useContext(AuthContext)
 
     const addUser = async (datos: AddUserType) => {
         await usersApi.addUser(datos)

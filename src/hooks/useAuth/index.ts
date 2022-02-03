@@ -23,7 +23,6 @@ const useAuth = () => {
 
     useEffect(() => {
         loginWithToken();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 

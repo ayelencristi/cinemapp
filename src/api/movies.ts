@@ -9,4 +9,4 @@ const getMovies = async (): Promise<Item[]> => {
 };
 
 
-export { getMovies }; 
+export const moviesApi = { getMovies }; 

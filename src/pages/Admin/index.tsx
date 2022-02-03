@@ -1,13 +1,17 @@
-import { FC } from "react"
-import { Wrapper } from "../../components"
+import { FC, useState } from "react"
+import { ItemList, SearchMovies, Wrapper } from "../../components"
 import { WithAuth } from "../../hoc"
 
 const AdminPage: FC = () => {
+
     return (
         <Wrapper>
-            Admin
+            <SearchMovies />
+            <ItemList data={items} />
         </Wrapper>
     )
 }
 
 export const Admin = WithAuth(AdminPage);
+
+// ItemList lleva una prop pero no estoy segura como pasarla
