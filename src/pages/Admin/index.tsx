@@ -1,23 +1,20 @@
 import { FC, useEffect, useState } from "react"
-import { ItemList, SearchMovies, Wrapper } from "../../components"
+import { MoviesList, Wrapper, SearchMovies } from "../../components"
 import { WithAuth } from "../../hoc"
-import { useItems } from "../../hooks/useItems";
-import { Item } from "../../types"
+import { useMovies } from "../../hooks/useMovies";
 
 
 const AdminPage: FC = () => {
 
-    const [items, setItems] = useState<Item[]>([]);
-
-    const { getItems } = useItems()
+    const { movies, getMovies } = useMovies()
 
     useEffect(() => {
-        !items && setItems(getItems())
-    }, [getItems])
+        !movies && getMovies()
+    }, [getMovies])
     return (
         <Wrapper>
             <SearchMovies />
-            <ItemList data={items} />
+            <MoviesList data={movies} />
         </Wrapper>
     )
 }

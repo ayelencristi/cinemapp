@@ -1,3 +1,3 @@
 export { UsersTable } from "./UsersTable"
-export { ItemList } from "./ItemList"
+export { MoviesList } from "./MoviesList"
 export { SearchMovies } from "./Search"
