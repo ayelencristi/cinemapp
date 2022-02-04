@@ -13,16 +13,16 @@ const MoviesList: FC<Props> = ({ data }) => {
     return (
         <div className="container">
             <div className="card-movies row">
-                {data?.map(item =>
+                {data?.map(movie =>
                     <Card className="item" style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={item.poster_path} />
+                        <Card.Img variant="top" src={movie.poster_path} />
                         <Card.Body>
-                            <Card.Title>{item.title}</Card.Title>
+                            <Card.Title>{movie.title}</Card.Title>
                             <Card.Text>
-                                {item.vote_average}
+                                {movie.vote_average}
                             </Card.Text>
                             <Card.Text>
-                                {item.vote_average}
+                                {movie.vote_average}
                             </Card.Text>
                             <Button></Button>
                         </Card.Body>

@@ -14,7 +14,7 @@ const useMovies = () => {
     const getMovie = (id: string) => { }
 
 
-    return { movies, getMovies, getMovie }
+    return { movies, getMovies }
 }
 
 export { useMovies }
