@@ -8,7 +8,7 @@ type Props = {
     data?: Item[]
 }
 
-const ItemList: FC<Props> = ({ data }) => {
+const MoviesList: FC<Props> = ({ data }) => {
 
     return (
         <div className="container">
@@ -34,4 +34,4 @@ const ItemList: FC<Props> = ({ data }) => {
     )
 }
 
-export { ItemList }
+export { MoviesList }
