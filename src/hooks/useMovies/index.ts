@@ -4,7 +4,7 @@ import { Item } from "../../types"
 
 const useMovies = () => {
 
-    const [movies, setMovies] = useState<Item[]>([])
+    const [movies, setMovies] = useState<Item[]>()
 
     const getMovies = async () => {
         const response = await moviesApi.getMovies()
