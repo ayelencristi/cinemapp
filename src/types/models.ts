@@ -11,13 +11,13 @@ export type User = {
 export type AddUserType = Omit<User, 'id'>;
 
 export type Item = {
-    poster_path?: string;
+    poster_path?: string | undefined;
     adult?: boolean;
     overview?: string;
-    release_date?: string;
+    release_date?: string | undefined;
     genre_ids?: number[];
     id: number;
-    idDB?: string;
+    idDB?: string | undefined;
     original_title?: string;
     original_language?: string;
     title: string;
@@ -28,4 +28,5 @@ export type Item = {
     vote_average: number;
     media_type?: string;
     watched?: string[]
+    name?: string
 };
