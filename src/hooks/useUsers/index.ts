@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { usersApi } from "../../api"
-import { AuthContext } from "../../context/Auth"
 import { UsersContext } from "../../context/Users"
 import { AddUserType } from "../../types/models"
 
@@ -20,11 +19,12 @@ const useUsers = () => {
         updateUsers(response)
     }
 
-    const getUser = (id: string) => {
-
+    const deleteUser = async (id: string) => {
+        await usersApi.deleteUser(id);
+        getUsers()
     }
 
-    return { addUser, getUsers, getUser }
+    return { addUser, getUsers, deleteUser }
 }
 
 

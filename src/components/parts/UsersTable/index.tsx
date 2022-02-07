@@ -1,5 +1,5 @@
 import { FC, useContext, useEffect } from "react"
-import { Table } from "react-bootstrap"
+import { Button, Table } from "react-bootstrap"
 import { UsersContext } from "../../../context/Users";
 import { useUsers } from "../../../hooks"
 
@@ -21,6 +21,7 @@ const UsersTable: FC = () => {
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Email</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,9 @@ const UsersTable: FC = () => {
                             <td>{user.name}</td>
                             <td>{user.lastname}</td>
                             <td>{user.email}</td>
+                            <td>
+                                <Button variant="dark" size="sm"><i className="fas fa-trash"></i></Button>
+                            </td>
                         </tr>
                     )
                     )}
