@@ -2,6 +2,7 @@ export type User = {
     id: string,
     name: string,
     lastname: string,
+    role: string,
     email: string,
     password: string,
     birthdate: Date;

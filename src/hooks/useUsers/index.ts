@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { usersApi } from "../../api"
 import { UsersContext } from "../../context/Users"
+import { Users } from "../../pages"
 import { AddUserType } from "../../types/models"
 
 const useUsers = () => {

@@ -1,8 +1,12 @@
 import { FC } from "react"
-import { Navbar, Container, Nav } from "react-bootstrap"
+import { Navbar, Container, Nav, Button } from "react-bootstrap"
+import { useAuth } from "../../../hooks"
 import "./styless.css"
 
 const NavBar: FC = () => {
+
+    const { logout } = useAuth()
+
     return (
         <Navbar className="nav-bar" variant="dark">
             <Container>
@@ -15,7 +19,7 @@ const NavBar: FC = () => {
                     <Nav.Link href="/series">Series</Nav.Link>
                     <Nav.Link href="/admin">Admin</Nav.Link>
                     <Nav.Link href="/users">Usuarios</Nav.Link>
-                    <Nav.Link href="/">Salir</Nav.Link>
+                    <Button variant="link" onClick={logout}>Salir</Button>
                 </Nav>
             </Container>
         </Navbar>
