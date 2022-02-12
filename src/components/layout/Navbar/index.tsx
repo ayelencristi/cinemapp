@@ -5,7 +5,7 @@ import "./styless.css"
 
 const NavBar: FC = () => {
 
-    const { logout } = useAuth()
+    const { logout, currentUser } = useAuth()
 
     return (
         <Navbar className="nav-bar" variant="dark">
@@ -17,8 +17,11 @@ const NavBar: FC = () => {
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/movies">Películas</Nav.Link>
                     <Nav.Link href="/series">Series</Nav.Link>
-                    <Nav.Link href="/admin">Admin</Nav.Link>
-                    <Nav.Link href="/users">Usuarios</Nav.Link>
+                    {currentUser?.role === 'admin' && (
+                        <>
+                            <Nav.Link href="/admin">Admin</Nav.Link>
+                            <Nav.Link href="/users">Usuarios</Nav.Link>
+                        </>)}
                     <Button variant="link" onClick={logout}>Salir</Button>
                 </Nav>
             </Container>

@@ -75,6 +75,8 @@ const useAuth = () => {
                 throw new Error("El usuario no existe");
             }
 
+
+
         } catch (e) {
         }
     };
@@ -107,7 +109,7 @@ const useAuth = () => {
     }
 
 
-    return { login, loginWithToken, logout, hasUserLoggedIn }
+    return { login, loginWithToken, logout, hasUserLoggedIn, currentUser }
 }
 
 export { useAuth }
