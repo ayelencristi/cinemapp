@@ -1,1 +1,1 @@
-export type { User, AddUserType, Item } from './models'
+export type { AddUserType, Item, User, Filter, Results, Video } from "./models"

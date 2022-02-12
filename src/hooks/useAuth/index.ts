@@ -15,7 +15,7 @@ const useAuth = () => {
 
     const { push } = useHistory();
 
-    const { setCurrentUser } = useContext(AuthContext);
+    const { setCurrentUser, currentUser } = useContext(AuthContext);
 
     useEffect(() => {
         if (tokenStorage) localStorage.setItem("cinema-token", tokenStorage);
@@ -106,11 +106,8 @@ const useAuth = () => {
         push("/login")
     }
 
-    const signUp = () => {
 
-    }
-
-    return { login, loginWithToken, logout, signUp, hasUserLoggedIn }
+    return { login, loginWithToken, logout, hasUserLoggedIn }
 }
 
 export { useAuth }

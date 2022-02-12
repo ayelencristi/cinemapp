@@ -7,12 +7,14 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { useUsers } from "../../../hooks";
 import { AddUserType } from "../../../types/models";
 import "./styless.css"
+import { useHistory } from "react-router-dom";
 
 
 
 const AddUsers: FC = () => {
 
     const { addUser, getUsers } = useUsers()
+    const { push } = useHistory();
 
     const { handleSubmit, register, formState } = useForm({
         defaultValues,
@@ -20,9 +22,13 @@ const AddUsers: FC = () => {
 
     });
 
-    const onSubmit = (data: AddUserType) => {
-        console.log(data);
-        addUser(data)
+    const onSubmit = async (data: AddUserType) => {
+        try {
+            await addUser(data);
+            push("/login")
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect(() => {
@@ -59,11 +65,19 @@ const AddUsers: FC = () => {
                         </Form.Group>
                     </Row>
 
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Fecha de nacimiento</Form.Label>
-                        <Form.Control type="date" {...register('birthdate')} />
-                    </Form.Group>
+                    <Row className="mb-3">
+                        <Form.Group as={Col} className="mb-3">
+                            <Form.Label>Fecha de nacimiento</Form.Label>
+                            <Form.Control type="date" {...register('birthdate')} />
+                        </Form.Group>
+                        <Form.Group as={Col}>
+                            <Form.Label>Rol</Form.Label>
+                            <Form.Select {...register('role')}>
+                                <option>user</option>
+                            </Form.Select>
+                            <span className="text-danger">{formState.errors.role?.message}</span>
+                        </Form.Group>
+                    </Row>
 
                     <Button className="btn-secondary mt-3" type="submit">
                         CREAR CUENTA

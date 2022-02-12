@@ -3,5 +3,6 @@ export const defaultValues = {
     lastname: '',
     email: '',
     password: '',
+    role: 'user',
     birthdate: ''
 }

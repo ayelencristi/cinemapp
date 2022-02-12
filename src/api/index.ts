@@ -1,1 +1,1 @@
-export { usersApi } from "./firebase"
+export { usersApi } from "./users"

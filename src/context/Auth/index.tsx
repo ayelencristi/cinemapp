@@ -15,6 +15,10 @@ const AuthProvider: FC = ({ children }) => {
 
     const [currentUser, setCurrentUser] = useState<Partial<User | undefined>>();
 
+    // const roleUser = (data: User) => {
+    //     if (currentUser?.role === 'admin')
+    // }
+
     // const fx = (newValue: User) => {
     //     if (currentUser?.role === 'admin')
     //         setCurrentUser(newValue)
