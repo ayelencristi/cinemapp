@@ -6,8 +6,12 @@ import { useUsers } from "../../../hooks"
 
 const UsersTable: FC = () => {
 
-    const { getUsers } = useUsers();
+    const { getUsers, deleteUser } = useUsers();
     const { users } = useContext(UsersContext)
+
+    const handleClick = (id: string) => {
+        deleteUser(id)
+    }
 
     useEffect(() => {
         getUsers()
@@ -31,7 +35,7 @@ const UsersTable: FC = () => {
                             <td>{user.lastname}</td>
                             <td>{user.email}</td>
                             <td>
-                                <Button variant="dark" size="sm"><i className="fas fa-trash"></i></Button>
+                                <Button variant="dark" size="sm" onClick={() => handleClick(user.id)}><i className="fas fa-trash"></i></Button>
                             </td>
                         </tr>
                     )

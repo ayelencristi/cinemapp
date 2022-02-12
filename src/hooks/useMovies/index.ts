@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { moviesApi } from "../../api/movies";
+import { moviesApi } from "../../api/moviesDB";
 import { Item } from "../../types"
 
 const useMovies = () => {
@@ -10,6 +10,7 @@ const useMovies = () => {
         const response = await moviesApi.getMovies()
         setMovies(response)
     }
+
 
     const getMovie = (id: string) => { }
 
