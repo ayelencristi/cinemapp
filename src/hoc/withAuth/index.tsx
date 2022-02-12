@@ -5,17 +5,20 @@ import { useAuth } from "../../hooks"
 
 const publicRoutes = ["/login", "/sign-up"]
 
+const adminRoutes = ["/admin", "/users"]
+
 type withAutenticationFn = (Component: FC) => FC
 
 const WithAuth: withAutenticationFn = (Component) => {
     const Authenticated: FC = (): JSX.Element | null => {
         const { push, location } = useHistory();
-        const { hasUserLoggedIn } = useAuth()
+        const { hasUserLoggedIn, currentUser } = useAuth()
 
         console.log(hasUserLoggedIn);
 
         if (hasUserLoggedIn === undefined) return <Loading />;
         if (hasUserLoggedIn && publicRoutes.includes(location.pathname)) push("/");
+        if (currentUser?.role === 'admin' && adminRoutes.includes(location.pathname)) push("/admin")
         if (hasUserLoggedIn === false && !publicRoutes.includes(location.pathname)) push("/login")
 
         return <Component />

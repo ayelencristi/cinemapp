@@ -15,17 +15,6 @@ const AuthProvider: FC = ({ children }) => {
 
     const [currentUser, setCurrentUser] = useState<Partial<User | undefined>>();
 
-    // const roleUser = (data: User) => {
-    //     if (currentUser?.role === 'admin')
-    // }
-
-    // const fx = (newValue: User) => {
-    //     if (currentUser?.role === 'admin')
-    //         setCurrentUser(newValue)
-    // }
-
-    // Hacer funcion para rol admin, agregar peliculas
-
     return (
         <AuthContext.Provider value={{ currentUser, setCurrentUser }}>
             {children}
