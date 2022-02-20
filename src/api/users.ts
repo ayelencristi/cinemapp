@@ -11,15 +11,13 @@ const addUser = async (payload: AddUserType) => {
     await api.post('/users.json', payload)
 }
 
-const getUser = async (id: string): Promise<User> => {
-    const response = await api.get<User>(`/users/${id}.json`);
+const getUser = async (idDB: string): Promise<User> => {
+    const response = await api.get<User>(`/users/${idDB}.json`);
     return response.data;
 };
 
-const deleteUser = async (id: string | undefined) => {
-    const users = await getUsers()
-    const findUser = users.find((user) => user.id === id)
-    await api.delete(`/users/${findUser?.id}.json`);
+const deleteUser = async (idDB: string | undefined) => {
+    await api.delete(`/users/${idDB}.json`);
 }
 
 export const usersApi = { getUsers, addUser, getUser, deleteUser }
