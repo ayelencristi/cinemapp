@@ -20,8 +20,8 @@ const useUsers = () => {
         updateUsers(response)
     }
 
-    const deleteUser = async (id: string) => {
-        await usersApi.deleteUser(id);
+    const deleteUser = async (idDB: string) => {
+        await usersApi.deleteUser(idDB);
         getUsers()
     }
 

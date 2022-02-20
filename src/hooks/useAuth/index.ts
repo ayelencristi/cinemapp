@@ -35,7 +35,7 @@ const useAuth = () => {
         const newToken = Math.random().toString(36).substr(2);
 
         try {
-            await api.patch(`/users/${user.id}.json`, { sessionToken: newToken });
+            await api.patch(`/users/${user.idDB}.json`, { sessionToken: newToken });
             return newToken;
         } catch (err) {
             return null;

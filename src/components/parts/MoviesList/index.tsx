@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { Card } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { Rating } from ".."
 import { Item } from "../../../types"
@@ -17,17 +17,17 @@ const MoviesList: FC<Props> = ({ data }) => {
         <div className="container">
             <div className="row">
                 {data?.map(movie =>
-                    <Card className="bg-transparent text-center col-md-3">
-                        <Link to={`/details/${movie.idDB}`} className="nav-link">
+                    <Card className="col-md-3 mb-4 bg-transparent">
+                        <Link to={`/details/${movie.id}`} className="nav-link">
                             <Card.Img src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-                            <Card.ImgOverlay className="info-card">
+                            <Card.Body className="row">
                                 <Card.Title>{movie.title || movie.name}</Card.Title>
                                 <Rating stars={movie.vote_average}></Rating>
                                 <Card.Text>{movie.vote_average}</Card.Text>
-                            </Card.ImgOverlay>
+                                <Button variant="primary"></Button>
+                            </Card.Body>
                         </Link>
-                    </Card>
-                )}
+                    </Card>)}
             </div>
         </div >
     )
