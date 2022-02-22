@@ -1,29 +1,16 @@
-import { FC } from 'react';
-import './styless.css'
+import { Rating } from 'react-simple-star-rating'
 
-type Props = {
-    stars: number
-}
-
-const Rating: FC<Props> = ({ stars }) => {
-
-    const maxStars = 5;
-    const Percentage = ((stars / 2.09) / maxStars) * 100;
-    const PercentageRounded = Math.round(Percentage);
-
-    const Stars = () => {
-        return {
-            width: PercentageRounded + "px"
-        };
-    };
-
+const StarRating = (ratingValue: any): JSX.Element => {
+    const { rating } = ratingValue;
 
     return (
-        <div className="stars-empty">
-            <div className="stars-yellow" style={Stars()}></div>
-        </div>
+        <Rating ratingValue={rating * 10}
+            size={25}
+            readonly
+            fillColor='yellow'
+            emptyColor='gray' />
     );
 }
 
 
-export { Rating }
+export { StarRating }

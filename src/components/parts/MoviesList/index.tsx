@@ -1,7 +1,7 @@
 import { FC } from "react"
 import { Button, Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { Rating } from ".."
+import { StarRating } from "../Rating"
 import { Results } from "../../../types"
 import "./styless.css"
 
@@ -22,7 +22,7 @@ const MoviesList: FC<Props> = ({ data }) => {
                             <Card.Img src={`http://image.tmdb.org/t/p/w500${item.poster_path}`} />
                             <Card.Body className="row">
                                 <Card.Title>{item.title || item.name}</Card.Title>
-                                <Rating stars={item.vote_average}></Rating>
+                                <StarRating rating={item.vote_average}></StarRating>
                                 <Card.Text>{item.vote_average}</Card.Text>
                                 <Button variant="primary"></Button>
                             </Card.Body>
