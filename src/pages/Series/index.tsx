@@ -4,7 +4,7 @@ import { WithAuth } from "../../hoc";
 
 const SeriesPage: FC = () => {
     return (
-        <Wrapper>Series</Wrapper>
+        <Wrapper></Wrapper>
     )
 }
 
