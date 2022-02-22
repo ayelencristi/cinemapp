@@ -1,21 +1,49 @@
-import { useState } from "react";
-import { moviesApi } from "../../api/moviesDB";
-import { Item } from "../../types"
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { searchMulti } from "../../api/moviesDB";
+import { Item, Filter, Results } from "../../types"
+import { apiMovies } from "../../utils";
 
 const useMovies = () => {
+    const params = new URLSearchParams(window.location.search)
+    const page = parseInt(params.get("page")!) || 1
+    const search = params.get("search") || undefined
 
-    const [movies, setMovies] = useState<Item[]>()
+    const [items, setItems] = useState<Results>()
+    const [lastPage, setLastPage] = useState(1)
 
-    const getMovies = async () => {
-        const response = await moviesApi.getMovies()
-        setMovies(response)
+    const { push } = useHistory()
+
+
+    const getMultiMovies = async ({ page, search }: Filter) => {
+        let response
+        if (search) {
+            response = await searchMulti.getSearchMulti({ page, search })
+        } else {
+            response = await searchMulti.getMovies({ page, search })
+        }
+        setItems(response)
+        return response
+    }
+
+    const setSearchParams = (input: string) => {
+        params.set("search", input)
+        push(`${window.location.pathname}?${params.toString()}`)
+    }
+
+    const setPageParams = (page: number) => {
+        params.set("page", page.toString())
+        push(`${window.location.pathname}?${params.toString()}`)
     }
 
 
-    const getMovie = (id: string) => { }
+    const getMovieVideo = async (id: number | undefined) => {
+        const response = await searchMulti.getVideo(id)
+        return response
+    }
 
 
-    return { movies, getMovies }
+    return { items, setItems, page, search, lastPage, getMultiMovies, setLastPage, setSearchParams, setPageParams, getMovieVideo }
 }
 
 export { useMovies }

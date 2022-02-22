@@ -6,6 +6,7 @@ import { useAuth } from '../../../hooks/useAuth';
 import { defaultValues } from './defaultValues';
 import { validationSchema } from './validationSchema';
 import "./styless.css"
+import { Link } from 'react-router-dom';
 
 type Props = {
     id?: string;
@@ -54,9 +55,10 @@ const LoginForm: FC<Props> = ({ id, className }) => {
                         <Form.Control id="password" type="password" {...register("password")} placeholder="Contraseña" />
                         {errors.email?.message}
                     </Form.Group>
-                    <Button className='btn-secondary mt-3' variant="primary" type="submit">
+                    <Button className='btn-secondary mt-3 mb-3' variant="primary" type="submit">
                         Iniciar sesión
                     </Button>
+                    <Link to="/sign-up">Aún no tengo cuenta</Link>
                 </Form>
             </div>
         </div>
