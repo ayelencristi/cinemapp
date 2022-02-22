@@ -1,0 +1,5 @@
+const MoviesList = () => {
+
+}
+
+export { MoviesList }

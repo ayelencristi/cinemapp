@@ -18,7 +18,7 @@ export type Item = {
     release_date?: string | undefined;
     genre_ids?: number[];
     id: number;
-    idDB?: string | undefined;
+    idFB?: string | undefined;
     original_title?: string;
     original_language?: string;
     title: string;

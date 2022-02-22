@@ -1,6 +1,7 @@
-import { AddUserType, User } from "../types/models"
+import { AddUserType, User, Item } from "../types/models"
 import { api } from "../utils"
 import { mapToArray } from '../helpers'
+import { mapToArrayFB } from "../helpers/mapToArray"
 
 const getUsers = async (): Promise<User[]> => {
     const response = await api.get('/users.json')
@@ -20,4 +21,22 @@ const deleteUser = async (idDB: string | undefined) => {
     await api.delete(`/users/${idDB}.json`);
 }
 
-export const usersApi = { getUsers, addUser, getUser, deleteUser }
+const addItem = async (payload: Item) => {
+    await api.post('/items.jason', payload)
+}
+
+const deleteItem = async (idFB: string | undefined) => {
+    await api.delete(`items/${idFB}.json`)
+}
+
+const getItems = async (): Promise<Item[]> => {
+    const response = await api.get('items.json')
+    return mapToArrayFB(response.data)
+}
+
+const getItem = async (idFB: string | undefined) => {
+    const response = await api.get<Item>(`/items/${idFB}.json`)
+    return response.data
+}
+
+export const usersApi = { getUsers, addUser, getUser, deleteUser, addItem, deleteItem, getItems, getItem }
