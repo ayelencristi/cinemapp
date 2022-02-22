@@ -1,15 +1,16 @@
 import { FC } from "react"
 import { Form } from "react-bootstrap"
 
-const SearchMovies: FC = () => {
+type Props = {
+    handleChange: (search: string) => void
+}
+
+const SearchMovies: FC<Props> = ({ handleChange }) => {
     return (
-        <>
+        <div className="container">
             <Form.Label>Search</Form.Label>
-            <Form.Control
-                type="searchMulti"
-                id=""
-            />
-        </>
+            <Form.Control type="text" onChange={(e) => handleChange(e.target.value)} />
+        </div>
     )
 }
 
