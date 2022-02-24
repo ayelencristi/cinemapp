@@ -15,7 +15,7 @@ const useMovies = () => {
     const { push } = useHistory()
 
 
-    const getMultiMovies = async ({ page, search }: Filter) => {
+    const getMultiMovies = async ({ page, search }: Filter): Promise<Results> => {
         let response
         if (search) {
             response = await searchMulti.getSearchMulti({ page, search })
