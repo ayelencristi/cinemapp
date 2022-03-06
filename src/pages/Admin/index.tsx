@@ -1,5 +1,6 @@
 import { FC, useEffect } from "react"
-import { MoviesList, Wrapper, SearchMovies } from "../../components"
+import { Pagination } from "react-bootstrap";
+import { MoviesList, Wrapper, SearchMovies, PaginationDiv } from "../../components"
 import { WithAuth } from "../../hoc"
 import { useMovies } from "../../hooks/useMovies";
 
@@ -16,6 +17,7 @@ const AdminPage: FC = () => {
         <Wrapper>
             <SearchMovies handleChange={setSearchParams} />
             <MoviesList data={items} />
+            <PaginationDiv />
         </Wrapper>
     )
 }

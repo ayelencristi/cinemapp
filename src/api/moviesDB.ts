@@ -13,10 +13,10 @@ const getMovies = async ({ page }: Filter): Promise<Results> => {
 };
 
 
-const getVideo = async (id: number | undefined) => {
+const getTrailer = async (id: number | undefined) => {
     const response = await apiMovies.get(`/movie/${id}/videos`)
     return response.data.results
 }
 
 
-export const searchMulti = { getMovies, getSearchMulti, getVideo }; 
+export const searchMulti = { getMovies, getSearchMulti, getTrailer }; 

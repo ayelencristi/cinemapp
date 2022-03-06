@@ -18,7 +18,7 @@ export type Item = {
     release_date?: string | undefined;
     genre_ids?: number[];
     id: number;
-    idDB?: string | undefined;
+    idFB?: string | undefined;
     original_title?: string;
     original_language?: string;
     title: string;
@@ -44,7 +44,7 @@ export type Results = {
     total_results: number,
 };
 
-export type Video = {
+export type Trailer = {
     iso_639_1: string,
     iso_3166_1: string,
     name: string,
