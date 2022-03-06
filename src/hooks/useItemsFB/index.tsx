@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usersApi } from '../../api'
 import { Item } from '../../types'
 
@@ -6,6 +6,10 @@ const useItems = () => {
 
     const [itemsFB, setItemsFB] = useState<Item[]>()
     const [detail, setDetail] = useState<Item>()
+
+    useEffect(() => {
+        if (!itemsFB) getItems()
+    }, [itemsFB])
 
     const addItem = async (datos: Item) => {
         await usersApi.addItem(datos);
@@ -22,7 +26,7 @@ const useItems = () => {
         getItems()
     }
 
-    const getMoviesFilter = async () => {
+    const moviesFilter = async () => {
         const response = await usersApi.getItems()
         const movies = response.filter((item) => item.media_type === 'movie')
         if (movies) {
@@ -30,7 +34,7 @@ const useItems = () => {
         }
     }
 
-    const getSeriesFilter = async () => {
+    const seriesFilter = async () => {
         const response = await usersApi.getItems()
         const series = response.filter((item) => item.media_type === 'serie')
         if (series) {
@@ -38,8 +42,8 @@ const useItems = () => {
         }
     }
 
-    const getDetail = async (idFB: string) => {
-        const detail = await usersApi.getItem(idFB)
+    const getDetail = async (id: string) => {
+        const detail = await usersApi.getItem(id)
         setDetail(detail)
     }
 
@@ -47,7 +51,9 @@ const useItems = () => {
         return itemsFB?.find((item) => item.id === id)
     }
 
-    return { addItem, getItems, deleteItem, getMoviesFilter, getSeriesFilter, itemsFB, setItemsFB, itemExist, getDetail, detail, setDetail }
+
+
+    return { addItem, getItems, deleteItem, moviesFilter, seriesFilter, itemsFB, setItemsFB, itemExist, getDetail, detail, setDetail }
 }
 
 export { useItems }
