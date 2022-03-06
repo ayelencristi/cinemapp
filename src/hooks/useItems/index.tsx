@@ -5,6 +5,7 @@ import { Item } from '../../types'
 const useItems = () => {
 
     const [items, setItems] = useState<Item[]>()
+    const [detail, setDetail] = useState<Item>()
 
     const addItem = async (datos: Item) => {
         await usersApi.addItem(datos);
@@ -37,7 +38,16 @@ const useItems = () => {
         }
     }
 
-    return { addItem, getItems, deleteItem, getMoviesFilter, getSeriesFilter, items, setItems }
+    const getDetail = async (idFB: string) => {
+        const detail = await usersApi.getItem(idFB)
+        setDetail(detail)
+    }
+
+    const itemExist = (id?: number) => {
+        return items?.find((item) => item.id === id)
+    }
+
+    return { addItem, getItems, deleteItem, getMoviesFilter, getSeriesFilter, items, setItems, itemExist, getDetail, detail, setDetail }
 }
 
 export { useItems }

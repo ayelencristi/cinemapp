@@ -44,7 +44,7 @@ export type Results = {
     total_results: number,
 };
 
-export type Video = {
+export type Trailer = {
     iso_639_1: string,
     iso_3166_1: string,
     name: string,

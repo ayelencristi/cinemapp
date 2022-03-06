@@ -37,13 +37,13 @@ const useMovies = () => {
     }
 
 
-    const getMovieVideo = async (id: number | undefined) => {
-        const response = await searchMulti.getVideo(id)
+    const getTrailer = async (id: number | undefined) => {
+        const response = await searchMulti.getTrailer(id)
         return response
     }
 
 
-    return { items, setItems, page, search, lastPage, getMultiMovies, setLastPage, setSearchParams, setPageParams, getMovieVideo }
+    return { items, setItems, page, search, lastPage, getMultiMovies, setLastPage, setSearchParams, setPageParams, getTrailer }
 }
 
 export { useMovies }
