@@ -1,8 +1,8 @@
+import { Search } from "material-ui-icons";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { searchMulti } from "../../api/moviesDB";
 import { Item, Filter, Results } from "../../types"
-import { apiMovies } from "../../utils";
 
 const useMovies = () => {
     const params = new URLSearchParams(window.location.search)
@@ -14,17 +14,25 @@ const useMovies = () => {
 
     const { push } = useHistory()
 
+    useEffect(() => {
+        searchMulti.getSearchMulti({ page, search }).then((response) => setItems(response))
+    }, [page, search])
 
-    const getMultiMovies = async ({ page, search }: Filter): Promise<Results> => {
-        let response
-        if (search) {
-            response = await searchMulti.getSearchMulti({ page, search })
-        } else {
-            response = await searchMulti.getMovies({ page, search })
-        }
-        setItems(response)
-        return response
-    }
+    useEffect(() => {
+        searchMulti.getSearchMulti({ page, search }).then((response) => setLastPage(response.total_pages))
+    }, [page, search])
+
+
+    // const getMultiMovies = async ({ page, search }: Filter): Promise<Results> => {
+    //     let response
+    //     if (search) {
+    //         response = await searchMulti.getSearchMulti({ page, search })
+    //     } else {
+    //         response = await searchMulti.getMovies({ page, search })
+    //     }
+    //     setItems(response)
+    //     return response
+    // }
 
     const setSearchParams = (input: string) => {
         params.set("search", input)
@@ -43,7 +51,7 @@ const useMovies = () => {
     }
 
 
-    return { items, setItems, page, search, lastPage, getMultiMovies, setLastPage, setSearchParams, setPageParams, getTrailer }
+    return { items, setItems, page, search, lastPage, setLastPage, setSearchParams, setPageParams, getTrailer }
 }
 
 export { useMovies }

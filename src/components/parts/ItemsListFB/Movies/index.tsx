@@ -3,13 +3,13 @@ import { Link } from "react-router-dom"
 import { StarRating } from "../.."
 import { useItems } from "../../../../hooks"
 
-const MoviesList = () => {
+const MoviesListFilter = () => {
 
-    const { items } = useItems()
+    const { itemsFB } = useItems()
     return (
         <div className="container">
             <div className="row">
-                {items?.map(item =>
+                {itemsFB?.map(item =>
                     <Card className="col-md-3 mb-4 bg-transparent">
                         <Link to={`/details/${item.id}`} className="nav-link">
                             <Card.Img src={`http://image.tmdb.org/t/p/w500${item.poster_path}`} />
@@ -26,4 +26,4 @@ const MoviesList = () => {
     )
 }
 
-export { MoviesList }
+export { MoviesListFilter }

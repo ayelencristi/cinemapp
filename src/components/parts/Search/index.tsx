@@ -8,11 +8,11 @@ type Props = {
 
 const SearchMovies: FC<Props> = ({ handleChange }) => {
 
-    const { getMultiMovies, page, search } = useMovies()
+    // const { getMultiMovies, page, search } = useMovies()
 
-    useEffect(() => {
-        getMultiMovies({ page, search })
-    }, [page, search])
+    // useEffect(() => {
+    //     getMultiMovies({ page, search })
+    // }, [page, search])
     return (
         <div className="container">
             <Form.Label>Search</Form.Label>

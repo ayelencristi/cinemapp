@@ -4,27 +4,37 @@ import { Link } from "react-router-dom"
 import { StarRating } from "../Rating"
 import { Results } from "../../../types"
 import "./styless.css"
+import { useItems, useMovies } from "../../../hooks"
 
 
 
-type Props = {
-    data?: Results | undefined
-}
+// type Props = {
+//     data?: Results | undefined
+// }
 
-const MoviesList: FC<Props> = ({ data }) => {
+const MoviesList: FC = () => {
+
+    const { addItem, deleteItem, itemExist } = useItems()
+    const { items } = useMovies()
 
     return (
         <div className="container">
             <div className="row">
-                {data?.results.map(item =>
+                {items?.results.map((item) =>
                     <Card className="col-md-3 mb-4 bg-transparent">
                         <Link to={`/details/${item.id}`} className="nav-link">
-                            <Card.Img src={`http://image.tmdb.org/t/p/w500${item.poster_path}`} />
+                            <Card.Img src={`http://image.tmdb.org/t/p/w500${item.poster_path}`} className="img-responsive" />
                             <Card.Body className="row">
                                 <Card.Title>{item.title || item.name}</Card.Title>
                                 <StarRating rating={item.vote_average}></StarRating>
                                 <Card.Text>{item.vote_average}</Card.Text>
-                                <Button variant="primary"></Button>
+                                {!itemExist(item.id) && (
+                                    <Button variant="primary" onClick={() => addItem(item)}> AGREGAR </Button>
+                                )}
+                                {itemExist(item.id) && (
+                                    <Button variant="primary" onClick={() => deleteItem(item.idFB)}> ELIMINAR </Button>
+                                )}
+
                             </Card.Body>
                         </Link>
                     </Card>)}
