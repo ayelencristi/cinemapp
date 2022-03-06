@@ -1,14 +1,14 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { useMovies } from "../../../hooks";
 
 
 const PaginationDiv: FC = () => {
-    const { setPageParams, page, lastPage, getMultiMovies, search, setLastPage } = useMovies();
+    const { setPageParams, page, lastPage } = useMovies();
 
-    useEffect(() => {
-        getMultiMovies({ page, search }).then((response) =>
-            setLastPage(response.total_pages));
-    }, [page, search]);
+    // useEffect(() => {
+    //     searchMulti.getSearchMulti({ page, search }).then((response) =>
+    //         setLastPage(response.total_pages));
+    // }, [page, search]);
 
     let active = true;
 
