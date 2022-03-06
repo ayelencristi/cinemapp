@@ -3,20 +3,15 @@ import { useItems, useMovies } from "../../../hooks";
 import { StarRating } from "../Rating";
 import { useParams } from "react-router-dom";
 import { Trailer } from "../../../types/models";
+import { searchMulti } from "../../../api";
 
 type Params = {
     id: string
 }
 
-
-
-
-
-
 const DetailCard: FC = () => {
     const { getDetail, detail } = useItems()
-    const { getTrailer } = useMovies()
-    const [trailer, setTrailer] = useState<Trailer>()
+    const [trailer, setTrailer] = useState<Trailer[]>([])
     const { id } = useParams<Params>()
 
 
@@ -26,7 +21,7 @@ const DetailCard: FC = () => {
     }, [id]);
 
     useEffect(() => {
-        getTrailer(detail?.id).then((results) => setTrailer(results))
+        searchMulti.getTrailers(detail?.id!, detail?.media_type!).then((results) => setTrailer(results))
     }, [detail])
 
     return (<>
@@ -58,12 +53,14 @@ const DetailCard: FC = () => {
                                 </section>
                                 <section className="mt-5">
                                     <h3 className="text-white">Trailer</h3>
-                                    <div className="row mt-4">
-                                        <div className="col-md-12 mb-3">
-                                            <iframe width="100%" height="320" src={`https://www.youtube.com/embed/${trailer?.key}`} title="Youtube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-                                            </iframe>
+                                    {trailer.map((video) => (
+                                        <div className="row mt-4">
+                                            <div className="col-md-12 mb-3">
+                                                <iframe width="100%" height="320" src={`https://www.youtube.com/embed/${video.key}`} title="Youtube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
+                                                </iframe>
+                                            </div>
                                         </div>
-                                    </div>
+                                    ))}
                                 </section>
                             </div>
                             <div className="col-md-5">

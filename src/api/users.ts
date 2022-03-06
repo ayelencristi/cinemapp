@@ -21,6 +21,11 @@ const deleteUser = async (idDB: string | undefined) => {
     await api.delete(`/users/${idDB}.json`);
 }
 
+const getItems = async (): Promise<Item[]> => {
+    const response = await api.get('items.json')
+    return mapToArrayFB(response.data)
+}
+
 const addItem = async (payload: Item) => {
     await api.post('/items.jason', payload)
 }
@@ -29,10 +34,6 @@ const deleteItem = async (idFB: string | undefined) => {
     await api.delete(`items/${idFB}.json`)
 }
 
-const getItems = async (): Promise<Item[]> => {
-    const response = await api.get('items.json')
-    return mapToArrayFB(response.data)
-}
 
 const getItem = async (idFB: string | undefined) => {
     const response = await api.get<Item>(`/items/${idFB}.json`)

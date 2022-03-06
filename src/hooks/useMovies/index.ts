@@ -22,18 +22,6 @@ const useMovies = () => {
         searchMulti.getSearchMulti({ page, search }).then((response) => setLastPage(response.total_pages))
     }, [page, search])
 
-
-    // const getMultiMovies = async ({ page, search }: Filter): Promise<Results> => {
-    //     let response
-    //     if (search) {
-    //         response = await searchMulti.getSearchMulti({ page, search })
-    //     } else {
-    //         response = await searchMulti.getMovies({ page, search })
-    //     }
-    //     setItems(response)
-    //     return response
-    // }
-
     const setSearchParams = (input: string) => {
         params.set("search", input)
         push(`${window.location.pathname}?${params.toString()}`)
@@ -45,13 +33,13 @@ const useMovies = () => {
     }
 
 
-    const getTrailer = async (id: number | undefined) => {
-        const response = await searchMulti.getTrailer(id)
-        return response
-    }
+    // const getTrailer = async (id: number | undefined, media_type: string) => {
+    //     const response = await searchMulti.getTrailers(id, media_type)
+    //     return response
+    // }
 
 
-    return { items, setItems, page, search, lastPage, setLastPage, setSearchParams, setPageParams, getTrailer }
+    return { items, setItems, page, search, lastPage, setLastPage, setSearchParams, setPageParams }
 }
 
 export { useMovies }
