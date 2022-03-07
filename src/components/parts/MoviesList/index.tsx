@@ -28,10 +28,10 @@ const MoviesList: FC = () => {
                             <StarRating rating={item.vote_average}></StarRating>
                             <Card.Text>{item.vote_average}</Card.Text>
                             {!itemExist(item.id) && (
-                                <Button variant="primary" onClick={() => addItem(item)}> AGREGAR </Button>
+                                <Button variant="dark" onClick={() => addItem(item)}> AGREGAR </Button>
                             )}
                             {itemExist(item.id) && (
-                                <Button variant="primary" onClick={() => deleteItem(item.idFB)}> ELIMINAR </Button>
+                                <Button variant="dark" onClick={() => deleteItem(item.idFB)}> ELIMINAR </Button>
                             )}
 
                         </Card.Body>

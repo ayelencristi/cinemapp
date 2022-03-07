@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useMovies } from "../../../hooks";
 
-
 const PaginationDiv: FC = () => {
     const { setPageParams, page, lastPage } = useMovies();
 
@@ -48,8 +47,8 @@ const PaginationDiv: FC = () => {
 
         <div className="Page navigation example pb-2">
             <ul className="pagination justify-content-center">
-                <li className={`page-item ${disabledFirts}`}>
-                    <button className="page-link" onClick={firtsPage} disabled={!active}> First </button>
+                <li className={`item-pagination page-item ${disabledFirts}`} >
+                    <button className="pagination-link page-link" onClick={firtsPage} disabled={!active}> First </button>
                 </li>
                 <li className={`page-item ${disabledFirts}`} id="prevPage">
                     <button className="page-link" onClick={prevPage} disabled={!active}> {page - 1} </button>
