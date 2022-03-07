@@ -3,7 +3,12 @@ import { apiMovies } from '../utils';
 
 
 const getSearchMulti = async ({ page, search }: Filter): Promise<Results> => {
-    const response = await apiMovies.get<Results>(`/search/multi?query=${search}&page=${page}`)
+    let response;
+    if (search) {
+        response = await apiMovies.get<Results>(`/search/multi?query=${search}&page=${page}`);
+    } else {
+        response = await apiMovies.get<Results>(`/movie/top_rated?page=${page}`);
+    }
     return response.data
 }
 
