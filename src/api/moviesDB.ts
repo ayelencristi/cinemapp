@@ -1,4 +1,4 @@
-import { Item, Results, Filter } from '../types';
+import { Results, Filter } from '../types';
 import { apiMovies } from '../utils';
 
 
