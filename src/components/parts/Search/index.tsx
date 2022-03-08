@@ -15,8 +15,9 @@ const SearchMovies: FC<Props> = ({ handleChange }) => {
     // }, [page, search])
     return (
         <div className="container">
-            <Form.Label>Search</Form.Label>
-            <Form.Control type="text" onChange={(e) => handleChange(e.target.value)} />
+            <div className="m-4">
+                <Form.Control type="text" onChange={(e) => handleChange(e.target.value)} placeholder="Búsqueda" />
+            </div>
         </div>
     )
 }
