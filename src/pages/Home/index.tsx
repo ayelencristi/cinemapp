@@ -1,11 +1,11 @@
 import { FC } from "react"
-import { Wrapper } from "../../components"
+import { UserList, Wrapper } from "../../components"
 import { WithAuth } from "../../hoc";
 
 const HomePage: FC = () => {
     return (
         <Wrapper>
-
+            <UserList />
         </Wrapper>
     )
 }
