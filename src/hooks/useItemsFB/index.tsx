@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { usersApi } from '../../api'
-import { Item } from '../../types'
+import { Item, User } from '../../types'
+import { api } from '../../utils'
 
 const useItems = () => {
 
@@ -21,8 +22,8 @@ const useItems = () => {
         setItemsFB(response)
     }
 
-    const deleteItem = async (idFB: string | undefined) => {
-        await usersApi.deleteItem(idFB);
+    const deleteItem = async (id: number) => {
+        await usersApi.deleteItem(id);
         getItems()
     }
 
@@ -50,6 +51,10 @@ const useItems = () => {
     const itemExist = (id?: number) => {
         return itemsFB?.find((item) => item.id === id)
     }
+
+    // const itemsViewed = (currentUser: Partial<User>, idFB?: string | undefined) => {
+    //     const itemViewed = currentUser.viewed?.includes(idFB)
+    // }
 
 
 

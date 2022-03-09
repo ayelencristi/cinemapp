@@ -7,6 +7,7 @@ export type User = {
     password: string,
     birthdate: Date;
     sessionToken?: string
+    viewed?: string[]
 }
 
 export type AddUserType = Omit<User, 'id'>;

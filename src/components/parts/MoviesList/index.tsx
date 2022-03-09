@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import { Button, Card } from "react-bootstrap"
 import { StarRating } from "../Rating"
 import { Item } from "../../../types"
@@ -13,8 +13,14 @@ import { useItems, useMovies } from "../../../hooks"
 
 const MoviesList: FC = () => {
 
-    const { addItem, deleteItem, itemExist } = useItems()
+    const { addItem, deleteItem, itemExist, itemsFB } = useItems()
     const { items } = useMovies()
+
+
+    // useEffect(() => {
+    //     getItems()
+    // }, [addItem, deleteItem])
+    // Preguntar por la peticion infinita
 
 
     return (
@@ -31,7 +37,7 @@ const MoviesList: FC = () => {
                                 <Button variant="dark" onClick={() => addItem(item)}> AGREGAR </Button>
                             )}
                             {itemExist(item.id) && (
-                                <Button variant="dark" onClick={() => deleteItem(item.idFB)}> ELIMINAR </Button>
+                                <Button variant="dark" onClick={() => deleteItem(item.id)}> ELIMINAR </Button>
                             )}
 
                         </Card.Body>
