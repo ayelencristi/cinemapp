@@ -9,7 +9,7 @@ const NavBar: FC = () => {
     const { logout, currentUser } = useAuth()
 
     return (
-        <Navbar collapseOnSelect className="nav-bar" variant="dark" expand="lg" fixed="top" >
+        <Navbar collapseOnSelect className="nav-bar" variant="dark" expand="lg" >
             <Container>
                 <Navbar.Brand href="/">
                     <h1 className="logo col-8">Cinem<strong>APP</strong></h1>

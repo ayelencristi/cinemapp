@@ -29,7 +29,7 @@ const DetailCard: FC = () => {
     return (<>
         {detail?.id !== undefined && (
             <div className="container">
-                <div className="card undefined">
+                <div className="card undefined" >
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-7">
@@ -42,13 +42,11 @@ const DetailCard: FC = () => {
                                     <div className="overvie mt-4"></div>
                                     <ul className="mt-4">
                                         <li>
-                                            ::marker
-                                            <strong>Fecha de lanzamiento:</strong>
+                                            <strong>Fecha de lanzamiento: </strong>
                                             {detail.release_date}
                                         </li>
                                         <li>
-                                            ::marker
-                                            <strong>Lenguaje original</strong>
+                                            <strong>Lenguaje original: </strong>
                                             {detail.original_language}
                                         </li>
                                     </ul>
