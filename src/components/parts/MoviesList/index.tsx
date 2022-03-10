@@ -37,7 +37,7 @@ const MoviesList: FC = () => {
                                 <Button variant="dark" onClick={() => addItem(item)}> AGREGAR </Button>
                             )}
                             {itemExist(item.id) && (
-                                <Button variant="dark" onClick={() => deleteItem(item.id)}> ELIMINAR </Button>
+                                <Button variant="danger" onClick={() => deleteItem(item.id)}> ELIMINAR </Button>
                             )}
 
                         </Card.Body>

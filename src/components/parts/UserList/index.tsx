@@ -6,7 +6,7 @@ import { StarRating } from "../Rating"
 
 const UserList: FC = () => {
 
-    const { deleteItem, itemExist, itemsFB } = useItems();
+    const { deleteItem, itemExist, itemsFB, addItemViewed, itemsViewed } = useItems();
     const { currentUser } = useAuth()
 
     return (
@@ -16,16 +16,18 @@ const UserList: FC = () => {
                     <Card className="col-md-3 mb-4 bg-transparent">
                         <Link to={`/details/${item.id}`} className="nav-link">
                             <Card.Img src={`http://image.tmdb.org/t/p/w500${item.poster_path}`} className="img-responsive" />
-                            <Card.Body className="row">
-                                <Card.Title>{item.title || item.name}</Card.Title>
-                                <StarRating rating={item.vote_average}></StarRating>
-                                <Card.Text>{item.vote_average}</Card.Text>
-                                {currentUser?.role === 'admin' && itemExist(item.id) && (
-                                    <Button variant="primary" onClick={() => deleteItem(item.id)}> ELIMINAR </Button>
-                                )}
-                                {currentUser?.role === 'user'}
-                            </Card.Body>
                         </Link>
+                        <Card.Body className="row">
+                            <Card.Title>{item.title || item.name}</Card.Title>
+                            <StarRating rating={item.vote_average}></StarRating>
+                            <Card.Text>{item.vote_average}</Card.Text>
+                            {currentUser?.role === 'admin' && itemExist(item.id) && (
+                                <Button variant="danger" onClick={() => deleteItem(item.id)}> ELIMINAR </Button>
+                            )}
+                            {/* {!itemsViewed(currentUser, item.idFB) && (
+                                <Button variant="primary" onClick={() => addItemViewed(item.idFB)}></Button>
+                            ) } */}
+                        </Card.Body>
                     </Card>)}
             </div>
         </div >

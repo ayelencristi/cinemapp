@@ -1,5 +1,0 @@
-const SeriesList = () => {
-
-}
-
-export { SeriesList }

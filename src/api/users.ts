@@ -37,9 +37,10 @@ const deleteItem = async (id: number) => {
 }
 
 
-const getItem = async (idFB: string | undefined) => {
-    const response = await api.get<Item>(`/items/${idFB}.json`)
-    return response.data
+const getItem = async (idFB: string) => {
+    const response = await api.get(`/items/${idFB}.json`)
+    return response
 }
+
 
 export const usersApi = { getUsers, addUser, getUser, deleteUser, addItem, deleteItem, getItems, getItem }
