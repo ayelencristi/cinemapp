@@ -6,6 +6,7 @@ const HomePage: FC = () => {
     return (
         <Wrapper>
             <UserList />
+
         </Wrapper>
     )
 }

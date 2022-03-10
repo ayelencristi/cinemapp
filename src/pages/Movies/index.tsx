@@ -4,7 +4,9 @@ import { WithAuth } from "../../hoc";
 
 const MoviesPage: FC = () => {
     return (
-        <Wrapper></Wrapper>
+        <Wrapper>
+
+        </Wrapper>
     )
 }
 

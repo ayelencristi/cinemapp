@@ -27,17 +27,20 @@ const getItems = async (): Promise<Item[]> => {
 }
 
 const addItem = async (payload: Item) => {
-    await api.post('/items.jason', payload)
+    await api.post('/items.json', payload)
 }
 
-const deleteItem = async (idFB: string | undefined) => {
-    await api.delete(`items/${idFB}.json`)
+const deleteItem = async (id: number) => {
+    const itemFB = await getItems()
+    const removeItem = itemFB.find((item) => item.id === id)
+    await api.delete(`items/${removeItem?.idFB}.json`)
 }
 
 
-const getItem = async (idFB: string | undefined) => {
-    const response = await api.get<Item>(`/items/${idFB}.json`)
-    return response.data
+const getItem = async (idFB: string) => {
+    const response = await api.get(`/items/${idFB}.json`)
+    return response
 }
+
 
 export const usersApi = { getUsers, addUser, getUser, deleteUser, addItem, deleteItem, getItems, getItem }
