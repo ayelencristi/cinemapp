@@ -27,7 +27,7 @@ const UserList: FC = () => {
                             {currentUser?.role === "user" && !itemsViewed(currentUser, item.id) &&
                                 <Button variant="primary" onClick={() => addItemViewed(currentUser, item.id)}>VISTA</Button>}
                             {currentUser?.role === "user" && itemsViewed(currentUser, item.id) &&
-                                <Button variant="primary" onClick={() => deleteItemViewed(currentUser, item.id)}>NO LA VI</Button>}
+                                <Button variant="dark" onClick={() => deleteItemViewed(currentUser, item.id)}>NO LA VI</Button>}
                         </Card.Body>
                     </Card>)}
             </div>
