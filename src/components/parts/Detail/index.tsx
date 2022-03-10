@@ -21,8 +21,10 @@ const DetailCard: FC = () => {
     }, [id]);
 
     useEffect(() => {
-        searchMulti.getTrailers(detail?.id!, detail?.media_type!).then((results) => setTrailer(results))
+        detail && searchMulti.getTrailers(detail?.id!, detail?.media_type!).then((results) => setTrailer(results))
     }, [detail])
+
+    console.log(detail)
 
     return (<>
         {detail?.id !== undefined && (

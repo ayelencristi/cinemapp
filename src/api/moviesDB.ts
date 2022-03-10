@@ -20,6 +20,7 @@ const getMovies = async ({ page }: Filter): Promise<Results> => {
 
 const getTrailers = async (id: number | undefined, media_type: string) => {
     let response
+    console.log(media_type)
     if (media_type === "movie") {
         response = await apiMovies.get(`/movie/${id}/videos`)
     } else {
