@@ -6,7 +6,7 @@ import { StarRating } from "../Rating"
 
 const UserList: FC = () => {
 
-    const { deleteItem, itemExist, itemsFB, addItemViewed, itemsViewed } = useItems();
+    const { deleteItem, itemExist, itemsFB, addItemViewed, itemsViewed, deleteItemViewed } = useItems();
     const { currentUser } = useAuth()
 
     return (
@@ -14,7 +14,7 @@ const UserList: FC = () => {
             <div className="row">
                 {itemsFB?.map((item) =>
                     <Card className="col-md-3 mb-4 bg-transparent">
-                        <Link to={`/details/${item.id}`} className="nav-link">
+                        <Link to={`/details/${item.idFB}`} className="nav-link">
                             <Card.Img src={`http://image.tmdb.org/t/p/w500${item.poster_path}`} className="img-responsive" />
                         </Link>
                         <Card.Body className="row">
@@ -24,9 +24,10 @@ const UserList: FC = () => {
                             {currentUser?.role === 'admin' && itemExist(item.id) && (
                                 <Button variant="danger" onClick={() => deleteItem(item.id)}> ELIMINAR </Button>
                             )}
-                            {/* {!itemsViewed(currentUser, item.idFB) && (
-                                <Button variant="primary" onClick={() => addItemViewed(item.idFB)}></Button>
-                            ) } */}
+                            {currentUser?.role === "user" && !itemsViewed(currentUser, item.id) &&
+                                <Button variant="primary" onClick={() => addItemViewed(currentUser, item.id)}>VISTA</Button>}
+                            {currentUser?.role === "user" && itemsViewed(currentUser, item.id) &&
+                                <Button variant="primary" onClick={() => deleteItemViewed(currentUser, item.id)}>NO LA VI</Button>}
                         </Card.Body>
                     </Card>)}
             </div>

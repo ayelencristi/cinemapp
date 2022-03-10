@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react'
 import { usersApi } from '../../api'
 import { Item, User } from '../../types'
 import { api } from '../../utils'
+import { useUsers } from '../useUsers'
 
 const useItems = () => {
 
     const [itemsFB, setItemsFB] = useState<Item[]>()
     const [detail, setDetail] = useState<Item>()
+
+    const { getUsers } = useUsers()
 
     useEffect(() => {
         if (!itemsFB) getItems()
@@ -14,7 +17,7 @@ const useItems = () => {
 
     const addItem = async (datos: Item) => {
         await usersApi.addItem(datos);
-        usersApi.getItems()
+        getItems()
     }
 
     const getItems = async () => {
@@ -52,19 +55,27 @@ const useItems = () => {
         return itemsFB?.find((item) => item.id === id)
     }
 
-    const addItemViewed = async (currentUser: Partial<User>, item?: string) => {
+    const addItemViewed = async (currentUser: Partial<User>, item: number) => {
         const itemsViewed = currentUser.viewed || [];
-        await api.patch(`/users/${currentUser.idDB}.json`, { viewed: [...itemsViewed, item] })
+        itemsViewed.push(item)
+        await api.patch(`/users/${currentUser.idDB}.json`, { viewed: itemsViewed })
+        getUsers()
     }
 
-    const itemsViewed = (currentUser: Partial<User>, idFB?: string | undefined) => {
-        const itemViewed = currentUser.viewed?.find((item) => item === idFB)
+    const deleteItemViewed = async (currentUser: Partial<User>, item: number) => {
+        const itemsViewed = currentUser.viewed?.filter((i) => i !== item)
+        await api.patch(`/users/${currentUser.idDB}.json`, { viewed: itemsViewed })
+        getUsers()
+    }
+
+    const itemsViewed = (currentUser: Partial<User>, id: number) => {
+        const itemViewed = currentUser.viewed?.find((item) => item === id)
         return itemViewed
     }
 
 
 
-    return { addItem, getItems, deleteItem, itemsFB, setItemsFB, itemExist, getDetail, detail, setDetail, addItemViewed, itemsViewed }
+    return { addItem, getItems, deleteItem, itemsFB, setItemsFB, itemExist, getDetail, detail, setDetail, addItemViewed, itemsViewed, deleteItemViewed }
 }
 
 export { useItems }
