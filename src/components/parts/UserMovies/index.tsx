@@ -3,6 +3,9 @@ import { Button, Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { useAuth, useItems } from "../../../hooks"
 import { StarRating } from "../Rating"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+
 
 const UserList: FC = () => {
 
@@ -25,9 +28,9 @@ const UserList: FC = () => {
                                 <Button variant="danger" onClick={() => deleteItem(item.id)}> ELIMINAR </Button>
                             )}
                             {currentUser?.role === "user" && !itemsViewed(currentUser, item.id) &&
-                                <Button variant="primary" onClick={() => addItemViewed(currentUser, item.id)}>VISTA</Button>}
+                                <Button variant="secondary" onClick={() => addItemViewed(currentUser, item.id)}><FontAwesomeIcon icon={faEye}></FontAwesomeIcon></Button>}
                             {currentUser?.role === "user" && itemsViewed(currentUser, item.id) &&
-                                <Button variant="dark" onClick={() => deleteItemViewed(currentUser, item.id)}>NO LA VI</Button>}
+                                <Button variant="secondary" onClick={() => deleteItemViewed(currentUser, item.id)}><FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon></Button>}
                         </Card.Body>
                     </Card>)}
             </div>
