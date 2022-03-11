@@ -2,6 +2,8 @@ import { FC, useContext, useEffect } from "react"
 import { Button, Table } from "react-bootstrap"
 import { UsersContext } from "../../../context/Users";
 import { useUsers } from "../../../hooks"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
 
 
 const UsersTable: FC = () => {
@@ -35,7 +37,7 @@ const UsersTable: FC = () => {
                             <td>{user.lastname}</td>
                             <td>{user.email}</td>
                             <td>
-                                <Button variant="dark" size="sm" onClick={() => handleClick(user.idDB)}><i className="fas fa-trash"></i></Button>
+                                <Button variant="dark" size="sm" onClick={() => handleClick(user.idDB)}><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></Button>
                             </td>
                         </tr>
                     )

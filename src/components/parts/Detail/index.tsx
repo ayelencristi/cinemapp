@@ -4,6 +4,7 @@ import { StarRating } from "../Rating";
 import { useParams } from "react-router-dom";
 import { Trailer } from "../../../types/models";
 import { searchMulti } from "../../../api";
+import "./styless.css"
 
 type Params = {
     id: string
@@ -29,13 +30,13 @@ const DetailCard: FC = () => {
     return (<>
         {detail?.id !== undefined && (
             <div className="container">
-                <div className="card undefined" >
+                <div className="card undefined card-detail" >
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-7">
                                 <header>
-                                    <h1>{detail.title || detail.name}</h1>
-                                    <h2>{detail.original_title}</h2>
+                                    <h1 className="text-white"><strong>{detail.title || detail.name}</strong></h1>
+                                    <h4>{detail.original_title}</h4>
                                     <StarRating rating={detail?.vote_average}></StarRating>
                                 </header>
                                 <section className="body">
