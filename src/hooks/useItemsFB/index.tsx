@@ -30,21 +30,21 @@ const useItems = () => {
         getItems()
     }
 
-    // const moviesFilter = async () => {
-    //     const response = await usersApi.getItems()
-    //     const movies = response.filter((item) => item.media_type === 'movie')
-    //     if (movies) {
-    //         setItemsFB(movies)
-    //     }
-    // }
+    const moviesFilter = async () => {
+        const response = await usersApi.getItems()
+        const movies = response.filter((item) => item.media_type === 'movie')
+        if (movies) {
+            setItemsFB(movies)
+        }
+    }
 
-    // const seriesFilter = async () => {
-    //     const response = await usersApi.getItems()
-    //     const series = response.filter((item) => item.media_type === 'serie')
-    //     if (series) {
-    //         setItemsFB(series)
-    //     }
-    // }
+    const seriesFilter = async () => {
+        const response = await usersApi.getItems()
+        const series = response.filter((item) => item.media_type === 'serie')
+        if (series) {
+            setItemsFB(series)
+        }
+    }
 
     const getDetail = async (idFB: string) => {
         const detail = await usersApi.getItem(idFB)
@@ -75,7 +75,7 @@ const useItems = () => {
 
 
 
-    return { addItem, getItems, deleteItem, itemsFB, setItemsFB, itemExist, getDetail, detail, setDetail, addItemViewed, itemsViewed, deleteItemViewed }
+    return { addItem, getItems, deleteItem, itemsFB, setItemsFB, itemExist, getDetail, detail, setDetail, addItemViewed, itemsViewed, deleteItemViewed, seriesFilter, moviesFilter }
 }
 
 export { useItems }

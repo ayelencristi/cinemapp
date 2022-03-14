@@ -1,26 +1,13 @@
-import { FC, useEffect } from "react"
+import { FC } from "react"
 import { Button, Card } from "react-bootstrap"
 import { StarRating } from "../Rating"
-import { Item } from "../../../types"
 import "./styless.css"
 import { useItems, useMovies } from "../../../hooks"
-
-
-
-// type Props = {
-//     data?: Results | undefined
-// }
 
 const MoviesList: FC = () => {
 
     const { addItem, deleteItem, itemExist, itemsFB } = useItems()
     const { items } = useMovies()
-
-
-    // useEffect(() => {
-    //     getItems()
-    // }, [addItem, deleteItem])
-    // Preguntar por la peticion infinita
 
 
     return (

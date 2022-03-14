@@ -40,7 +40,7 @@ const LoginForm: FC<Props> = ({ id, className }) => {
     return (
         <div className='container'>
             <div className='title'>
-                <h1 className='title-font'>CinemApp</h1>
+                <h1 className='title-font'>CinemAPP</h1>
             </div>
             <div className="login-form">
                 <Form className='p-3 form' id={id} onSubmit={handleSubmit(onSubmit)}>
@@ -58,7 +58,10 @@ const LoginForm: FC<Props> = ({ id, className }) => {
                     <Button className='btn-secondary mt-3 mb-3' variant="primary" type="submit">
                         Iniciar sesión
                     </Button>
-                    <Link to="/sign-up">Aún no tengo cuenta</Link>
+                    <div className='d-flex justify-content-between'>
+                        <Link className="" to="/sign-up">Aún no tengo cuenta</Link>
+                        <Link className="" to="/sign-up">Olvidé mi cotraseña</Link>
+                    </div>
                 </Form>
             </div>
         </div>
