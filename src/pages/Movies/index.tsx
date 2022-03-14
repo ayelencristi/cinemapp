@@ -1,11 +1,11 @@
 import { FC } from "react"
-import { Wrapper } from "../../components"
+import { MoviesItems, Wrapper } from "../../components"
 import { WithAuth } from "../../hoc";
 
 const MoviesPage: FC = () => {
     return (
         <Wrapper>
-
+            <MoviesItems />
         </Wrapper>
     )
 }

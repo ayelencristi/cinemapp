@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { useUsers } from "../../../hooks";
 import { AddUserType } from "../../../types/models";
 import "./styless.css"
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 
 
@@ -38,6 +38,9 @@ const AddUsers: FC = () => {
 
     return (
         <div className="container">
+            <div className='title'>
+                <h1 className='title-font'>CinemAPP</h1>
+            </div>
             <div className="login-form">
                 <Form className="p-3 form" onSubmit={handleSubmit(onSubmit)}>
                     <Row className="mb-3">
@@ -78,10 +81,12 @@ const AddUsers: FC = () => {
                             <span className="text-danger">{formState.errors.role?.message}</span>
                         </Form.Group>
                     </Row>
-
-                    <Button className="btn-secondary mt-3" type="submit">
-                        CREAR CUENTA
-                    </Button>
+                    <div className='d-flex justify-content-between'>
+                        <Button className="btn-secondary mt-3" type="submit">
+                            CREAR CUENTA
+                        </Button>
+                        <Link className="mt-3" to='/login'>Ya tengo cuenta</Link>
+                    </div>
                 </Form>
             </div>
         </div>
